@@ -3,4 +3,4 @@ It works by requesting the latest tag, finding the associated .zip file, and dow
 
 Games:  Pixelland, Voxelland, Star Alliance.
 
-To get started, download the latest release and start the application.
+To get started, download the latest release and start the application at https://github.com/Levike34/RustPrograms/releases/tag/0.1.0 .
