@@ -1,0 +1,89 @@
+[package]
+name = "airshipper"
+description = "Provides automatic updates for the voxel RPG Veloren."
+version = "0.7.0"
+authors = ["Songtronix <contact@songtronix.com>"]
+edition = "2018"
+publish = false
+default-run = "airshipper"
+
+license = "GPL-3.0"
+homepage = "https://www.veloren.net"
+repository = "https://gitlab.com/veloren/airshipper"
+
+[package.metadata.nix]
+build = true
+app = true
+runtimeLibs = [
+    "vulkan-loader",
+    "wayland",
+    "wayland-protocols",
+    "libxkbcommon",
+    "xorg.libX11",
+    "xorg.libXrandr",
+    "xorg.libXi",
+    "xorg.libXcursor",
+]
+buildInputs = ["libxkbcommon"]
+
+[package.metadata.nix.desktopFile]
+name = "Airshipper"
+icon = "./client/assets/favicon.ico"
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[features]
+# Windows cannot bundle ssl by default and as such this feature exists
+# to bundle ssl in CI.
+bundled = ["openssl-sys"]
+
+[dependencies]
+error-chain = "0.12.2"
+# Cli
+clap = { version = "3.1.18", features = ["cargo", "derive"] }
+indicatif = "0.16"
+# UI
+iced = { version = "0.4.2", default-features = false, features = ["wgpu", "tokio", "image", "pure"] }
+iced_native = "0.5.0"
+# Logging
+tracing = { version = "0.1.21", features = ["log"] }
+tracing-futures = "0.2.4"
+tracing-subscriber = { version = "0.3.7", default-features = false, features = ["env-filter", "fmt", "time", "ansi", "smallvec", "tracing-log"]}
+termcolor = "1.1.3"
+tracing-appender = "0.2.0"
+tracing-log = "0.1.1"
+regex = "1.5"
+# Networking
+reqwest = { version = "0.11.4", default-features = false, features = ["rustls-tls"] }
+# Parsing
+pulldown-cmark = "0.8.0"
+strip_markdown = "0.2.0"
+html2text = "0.2.1"
+serde = "1.0.116"
+semver = "1"
+rss = "1.10"
+ron = "0.6.2"
+zip = "0.5.8"
+url = "2.2.2"
+# Other
+image = { version = "0.23.14", default-features = false, features = ["ico"] }
+tokio = { version = "1.7.1", features = ["macros", "io-util", "process", "fs", "rt-multi-thread"] }
+tokio-stream = { version = "0.1.6", features = ["io-util"] }
+futures-util = "0.3.15"
+derive_more = "0.99.11"
+find_folder = "0.3.0"
+lazy_static = "1.4.0"
+thiserror = "1.0.20"
+bytesize = "1.0.1"
+opener = "0.5"
+dirs = { package = "dirs-next", version = "2.0.0" }
+# bundle all the things!
+openssl-sys = { version = "*", features = ["vendored"], optional = true }
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.9", features = ["shellapi", "winuser"] }
+self_update = { version = "0.27.0", features = ["archive-zip"] }
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0.1.11"
