@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    'node',
+    'runtime',
+    'pallets/timestake',
+    'pallets/chainless_mint_iou',
+]
+[profile.release]
+panic = 'unwind'
+
+
