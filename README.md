@@ -8,3 +8,7 @@ RUST API using tide crate and MySQL database.  Can be used for CRUD operations a
 
 <h1>VRMETA blockchain</h1>
 Blockchain built using Substrate, designed for the metaverse and gaming operations.  Each Pallet consists of gaming smart contracts based on the game genre.
+
+<h1>File extension changer</h1>
+Iterates through a directory and changes the extension to the requested new extension.  Useful for preparing NFT collections into .json and .png sets.
+
