@@ -1,0 +1,22 @@
+[package]
+name = "tide"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tide = "0.16.0"
+async-std = { version = "1.9.0", features = ["attributes", "tokio1"] }
+serde = { version = "1.0.115", features = ["derive"] }
+serde_json = "1.0.57"
+sqlx = { version = "0.4.2", features = ["runtime-async-std-native-tls", "macros", "chrono", "json", "mysql", "uuid"] }
+chrono = "0.4"
+dotenv = "0.15"
+uuid = { version = "0.8", features = ["v4", "serde"] }
+tera = "1.10.0"
+tide-tera = "0.2.4"
+oauth2 = { version = "4.0.0", features = ["reqwest"], default-features = false  }
+surf = { version = "2.1.0" }
+http-types = "2.12.0"
+sha2 = "0.10.2"
