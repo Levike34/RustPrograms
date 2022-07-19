@@ -12,3 +12,6 @@ Blockchain built using Substrate, designed for the metaverse and gaming operatio
 <h1>File extension changer</h1>
 Iterates through a directory and changes the extension to the requested new extension.  Useful for preparing NFT collections into .json and .png sets.
 
+<h1>Web scraper</h1>
+Web scraping application built in Rust.  Pulls data via html web scraping into local scope.  Can be expanded to insert the data into databases, json, etc.
+
